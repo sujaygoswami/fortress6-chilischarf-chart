@@ -17,13 +17,31 @@ window.onload = function () {
     rangeSelector: {
       buttonStyle: {
           backgroundColor: "transparent",
-          borderColor: "#9BBEDF",
+          borderColor: "grey",
+          backgroundColorOnHover: "transparent",
+          backgroundColorOnSelect: "transparent",
+          borderColorOnHover: "#319537",
+          borderColorOnSelect: "#319537",
+          labelFontColor: "#319537",
+          labelFontColorOnHover: "#319537",
+          labelFontWeight: "normal",
       },
-      buttons: [
-        {
-          label: "1 Monat",
+      buttons: [{
+          label: "1 Jahr",
           range: 1,
-          rangeType: "month"
+          rangeType: "year"
+        },{
+          label: "3 Jahr",
+          range: 3,
+          rangeType: "year"
+        },{
+          label: "5 Jahr",
+          range: 5,
+          rangeType: "year"
+        },{
+          label: "10 Jahr",
+          range: 10,
+          rangeType: "year"
         }
       ],
       inputFields: {
