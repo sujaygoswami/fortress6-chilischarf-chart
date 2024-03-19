@@ -16,17 +16,20 @@ window.onload = function () {
     }],
     rangeSelector: {
       buttonStyle: {
-          backgroundColor: "transparent",
-          borderColor: "grey",
-          backgroundColorOnHover: "transparent",
-          backgroundColorOnSelect: "transparent",
+          borderColor: "#319537",
+          backgroundColorOnHover: "#319537",
+          backgroundColorOnSelect: "#319537",
           borderColorOnHover: "#319537",
           borderColorOnSelect: "#319537",
           labelFontColor: "#319537",
-          labelFontColorOnHover: "#319537",
-          labelFontWeight: "normal",
+          labelFontColorOnHover: "white",
+          labelFontWeight: "normal"
       },
       buttons: [{
+          label: "YTD",
+          rangeType: "ytd"
+        },
+        {
           label: "1 Jahr",
           range: 1,
           rangeType: "year"
