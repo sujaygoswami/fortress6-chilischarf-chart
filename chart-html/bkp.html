@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="Javascripts/libs/canvasjs.stock.min.js"></script>
+<script type="text/javascript">
+window.onload = function () {
+  var dataPoints = [];
+  var stockChart = new CanvasJS.StockChart("stockChartContainer", {
+    exportEnabled: true,
+    title: {
+      text:"StockChart with Line using JSON Data"
+    },
+    toolTip:{
+      borderColor: "red",
+      fontColor: "red",
+    },
+    subtitles: [{
+      text:"Total Retail Sales of ACME "
+    }],
+    rangeSelector: {
+      buttonStyle: {
+          borderColor: "#319537",
+          backgroundColorOnHover: "#319537",
+          backgroundColorOnSelect: "#319537",
+          borderColorOnHover: "#319537",
+          borderColorOnSelect: "#319537",
+          labelFontColor: "#319537",
+          labelFontColorOnHover: "white",
+          labelFontWeight: "normal"
+      },
+      buttons: [{
+          label: "YTD",
+          rangeType: "ytd"
+        },
+        {
+          label: "1 Jahr",
+          range: 1,
+          rangeType: "year"
+        },{
+          label: "3 Jahr",
+          range: 3,
+          rangeType: "year"
+        },{
+          label: "5 Jahr",
+          range: 5,
+          rangeType: "year"
+        },{
+          label: "10 Jahr",
+          range: 10,
+          rangeType: "year"
+        }
+      ],
+      inputFields: {
+        enabled: false
+      }
+    },
+    charts: [{
+      axisX: {
+        labelFontColor: "#319537",
+        crosshair: {
+          enabled: true,
+          snapToDataPoint: true,
+          valueFormatString: ""
+        }
+      },
+      axisY: {
+        title: "",
+        labelFontColor: "#319537",
+        prefix: "",
+        suffix: "",
+        crosshair: {
+          enabled: true,
+          snapToDataPoint: true,
+          valueFormatString: "",
+        }
+      },
+      data: [{
+        type: "line",
+        xValueFormatString: "",
+        yValueFormatString: "",
+        dataPoints : dataPoints,
+        markerColor: "#319537",
+        lineColor:"#319537",
+      }]
+    }],
+    navigator: {
+      enabled: false
+      // slider: {
+      //   minimum: new Date(2013, 31, 12),
+      //   maximum: new Date(2025, 31, 12)
+      // }
+    }
+  });
+  $.getJSON("https://p644747.webspaceconfig.de/chart-html/Data/gm1.json", function(data) {
+    for(var i = 0; i < data.length; i++){
+      dataPoints.push({x: new Date(data[i].date), y: Number(data[i].gm1)});
+    }
+    stockChart.render();
+  });
+}
+</script>
+<style>
+  .canvasjs-chart-toolbar, .canvasjs-input-field, .canvasjs-chart-credit{
+    display: none !important;
+  }
+</style>
+</head>
+<body>
+<div id="stockChartContainer" style="height: 400px; max-width: 920px; margin: 0px auto;"></div>
+</body>
+</html>

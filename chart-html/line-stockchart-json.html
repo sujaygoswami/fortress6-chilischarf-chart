@@ -2,6 +2,7 @@
 <html>
 <head>
 <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<!-- <script type="text/javascript" src="Javascripts/libs/canvasjs.min.js"></script> -->
 <script type="text/javascript" src="Javascripts/libs/canvasjs.stock.min.js"></script>
 <script type="text/javascript">
 window.onload = function () {
@@ -52,6 +53,10 @@ window.onload = function () {
       }
     },
     charts: [{
+      toolTip: {
+        borderColor: "#319537",
+        content:"<span style='\"'color: #319537;'\"'>{x}</span> : {y}"
+      },
       axisX: {
         crosshair: {
           enabled: true,
@@ -75,7 +80,7 @@ window.onload = function () {
         yValueFormatString: "",
         dataPoints : dataPoints,
         markerColor: "#319537",
-        lineColor:"#319537"
+        lineColor:"#319537",
       }]
     }],
     navigator: {
